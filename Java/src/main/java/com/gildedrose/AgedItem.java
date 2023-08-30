@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class AgedItem extends Item{
 
-    private Item item;
+//    private Item item;
 
     public AgedItem(String name, int sellIn, int quality, String type) {
         super(name, sellIn, quality, type);
@@ -12,10 +12,10 @@ public class AgedItem extends Item{
     public void updateQuality(){
         this.sellIn -= 1;
         if (this.sellIn < 0 ){
-            ChangeQuality(item,2);
+            ChangeQuality(this,2);
         }
         else {
-            ChangeQuality(item,1);
+            ChangeQuality(this,1);
         }
     }
 }
