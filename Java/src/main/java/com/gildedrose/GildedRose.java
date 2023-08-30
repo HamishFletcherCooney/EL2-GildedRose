@@ -6,10 +6,13 @@ import java.util.List;
 
 class GildedRose {
 //    Item[] originalItems;
-    List<Item> typedItems = new ArrayList<>();
+    IListOfItems realNames;
+//    List<Item> typedItems = new ArrayList<>();
 
-    public GildedRose(Item[] items) {
-        typedItems = new ListOfItems(items).getListOfItems();
+    public GildedRose(IListOfItems aRandomName) {
+        this.realNames = aRandomName;
+//        typedItems = aRandomName.getListOfItems();
+//        typedItems = new ListOfItems(items).getListOfItems();
 //        this.originalItems = items;
 //        itemFactory factory = new itemFactory();
 //        for (Item item : items) {
@@ -17,7 +20,13 @@ class GildedRose {
 //        }
     }
 
+    public List<Item> getListMacro(){
+        return realNames.getListOfItems();
+    }
+
     public void updateQuality() {
+
+        List<Item> typedItems = this.getListMacro();
         for (Item item : typedItems) {
             item.updateQuality();
         }
